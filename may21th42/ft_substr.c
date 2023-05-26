@@ -6,7 +6,7 @@
 /*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 18:06:18 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/24 21:59:09 by yutoendo         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:02:13 by yutoendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	strlen = ft_strlen(s);
 	if (start > strlen)
 		len = 0;
+	else if (start + len > strlen)
+		len = strlen - start;
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
