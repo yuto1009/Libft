@@ -6,7 +6,7 @@
 /*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:30:04 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/21 15:20:32 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/27 12:36:40 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int	ft_atoi(const char *str)
 {
-	int			sign;
-	long int	num;
+	int	sign;
+	int	num;
+	int	digit;
 
 	sign = 1;
 	num = 0;
-	while (*str == '\n' || *str == '\t' || *str == '\f' || *str == '\v'
-		|| *str == '\r' || *str == ' ')
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
+		|| *str == '\f' || *str == '\r')
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -28,12 +29,13 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	while (*str)
+	while (ft_isdigit((unsigned char)*str))
 	{
-		if (*str >= '0' && *str <= '9')
-			num = num * 10 + *str - '0';
-		else
-			break ;
+		digit = *str - '0';
+		if ((sign > 0 && (INT_MAX - digit) / 10 < num) || (sign < 0 && (INT_MIN
+					+ digit) / 10 > -num))
+			return (-1);
+		num = num * 10 + digit;
 		str++;
 	}
 	return (num * sign);
@@ -50,7 +52,7 @@ int	ft_atoi(const char *str)
 //     char *str3 = "2147483647";
 //     char *str4 = "--++-+-23r90";
 //     char *str5 = "++1234";
-//     char *str6 = "+1234";
+//     char *str6 = "**1234";
 //     char *str7 = "9223372036854775808";
 //     char *str8 = "-9223372036854775808";
 //     char *str9 = "922337203685477580899999999764479099898765678765676433453";

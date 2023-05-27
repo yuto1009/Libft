@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 12:34:56 by yutoendo          #+#    #+#             */
-/*   Updated: 2023/05/17 12:52:47 by yutoendo         ###   ########.fr       */
+/*   Updated: 2023/05/27 11:06:36 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
-		return (c);
+		return (1);
 	return (0);
 }
 
