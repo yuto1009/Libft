@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:36:49 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/26 22:31:55 by yutoendo         ###   ########.fr       */
+/*   Updated: 2023/05/28 13:09:50 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	my_word_count(char const *s, char c)
+static size_t	my_word_count(char const *s, char c)
 {
-	int	count;
-	int	in_word;
+	size_t	count;
+	size_t	in_word;
 
 	count = 0;
 	in_word = 0;
@@ -35,17 +35,20 @@ static int	my_word_count(char const *s, char c)
 
 static char	*my_strncpy(char *destination, const char *source, size_t num)
 {
-	if (num == 0)
+	size_t	i;
+
+	i = 0;
+	while (i < num && source[i] != '\0')
 	{
-		return (destination);
+		destination[i] = source[i];
+		i++;
 	}
-	if (*source == '\0')
+	while (i < num)
 	{
-		*destination = '\0';
-		return (my_strncpy(destination + 1, source, num - 1));
+		destination[i] = '\0';
+		i++;
 	}
-	*destination = *source;
-	return (my_strncpy(destination + 1, source + 1, num - 1));
+	return (destination);
 }
 
 static char	*my_make_word(char const *s, size_t len)
@@ -60,9 +63,9 @@ static char	*my_make_word(char const *s, size_t len)
 	return (word);
 }
 
-static int	my_process_word(char const **s, char c, char **split, int i)
+static size_t	my_process_word(char const **s, char c, char **split, size_t i)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while ((*s)[len] != c && (*s)[len] != '\0')
@@ -81,7 +84,7 @@ static int	my_process_word(char const **s, char c, char **split, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	int		words;
+	size_t	words;
 	char	**split;
 	int		i;
 

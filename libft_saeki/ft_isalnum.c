@@ -6,7 +6,7 @@
 /*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:46:33 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/19 14:16:33 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/28 18:28:48 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	// if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	// 	return (1);
+	// if (c >= '0' && c <= '9')
+	// 	return (1);
+	// return (0);
+	return(ft_isdigit(c) || ft_isalpha(c));
 }
 
 // #include <stdio.h>

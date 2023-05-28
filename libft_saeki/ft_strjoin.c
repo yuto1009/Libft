@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:28:27 by yutoendo          #+#    #+#             */
-/*   Updated: 2023/05/24 16:43:45 by yutoendo         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:55:28 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		*str++ = *s2++;
 	*str = 0;
 	return (str_start);
+}
+
+#include <stdio.h>
+int main()
+{
+	char *result = ft_strjoin(NULL, "HELLO");
+	printf("%s", result);
+	return (0);
 }
