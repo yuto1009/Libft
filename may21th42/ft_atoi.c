@@ -6,16 +6,16 @@
 /*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:30:04 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/28 19:27:03 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/28 19:46:59 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int my_overflow(long num, char str){
+// static int my_overflow(long num, char str){
 	
-	return (int)num;
-}
+// 	return (int)num;
+// }
 
 int	ft_atoi(const char *str)
 {

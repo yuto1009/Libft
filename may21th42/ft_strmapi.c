@@ -6,7 +6,7 @@
 /*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 16:11:36 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/25 17:26:57 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/28 20:16:46 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 	size_t	strlen;
 
+	if(!s || !f)
+		return NULL;
 	strlen = ft_strlen(s);
 	p = malloc(sizeof(char) * (strlen + 1));
 	if (!p)
