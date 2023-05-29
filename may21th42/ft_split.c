@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:36:49 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/28 20:08:55 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/29 16:53:58 by yutoendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static char	*my_make_word(char const *s, size_t len)
 	return (word);
 }
 
-static size_t	my_process_word(char const **s, char c, char **split, size_t i)
+static int	my_process_word(char const **s, char c, char **split, int i)
 {
 	size_t	len;
 
@@ -88,8 +88,8 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 	int		i;
 
-	if(!s)
-		return(NULL);
+	if (!s)
+		return (NULL);
 	words = my_word_count(s, c);
 	split = (char **)malloc(sizeof(char *) * (words + 1));
 	if (split == NULL)
