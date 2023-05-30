@@ -6,7 +6,7 @@
 /*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 17:09:52 by yutoendo          #+#    #+#             */
-/*   Updated: 2023/05/19 12:30:48 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/05/30 15:53:56 by yuendo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	s = (const unsigned char *)src;
 	d = (unsigned char *)dst;
+	if (s == NULL && d == NULL)
+		return NULL;
 	while (n--)
 		*d++ = *s++;
 	return (dst);
