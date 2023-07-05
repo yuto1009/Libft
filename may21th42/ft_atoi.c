@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yuendo <yuendo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yutoendo <yutoendo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 13:30:04 by yuendo            #+#    #+#             */
-/*   Updated: 2023/05/30 17:06:50 by yuendo           ###   ########.fr       */
+/*   Updated: 2023/07/05 17:55:49 by yutoendo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	my_overflow(long num, int sign, const char *str)
+static int	is_overflow(long num, int sign, const char *str)
 {
 	int	digit;
 
@@ -33,7 +33,6 @@ int	ft_atoi(const char *str)
 {
 	int		sign;
 	long	num;
-	int		digit;
 
 	sign = 1;
 	num = 0;
@@ -46,16 +45,7 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	while (ft_isdigit((unsigned char)*str))
-	{
-		digit = *str - '0';
-		if ((sign > 0 && (INT_MAX - digit) / 10 < num) || (sign < 0 && (INT_MIN
-					+ digit) / 10 > -num))
-			return (my_overflow(num, sign, str));
-		num = num * 10 + digit;
-		str++;
-	}
-	return (num * sign);
+	return (is_overflow(num, sign, str));
 }
 
 // #include <string.h>
