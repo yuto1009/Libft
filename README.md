@@ -65,4 +65,4 @@ make
 Compile libft.a with .c files to use the functions.
 
 ## License
-[MIT]()
+[MIT](https://github.com/yuto1009/Libft/blob/master/LICENSE)
